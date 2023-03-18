@@ -37,6 +37,12 @@ class MelonType:
         """Replace the reporting code with the new_code."""
 
         # Fill in the rest
+        self.code = new_code
+
+    # def repr(self):
+    #     return f"<melon name = {self.name}>"
+    """Question for Meggin: 
+    When will we have to call this definition in order to use it with other methods/functions?"""
 
 
 def make_melon_types():
@@ -61,26 +67,44 @@ def make_melon_types():
     yellow_watermelon.add_pairing("ice cream")
     all_melon_types.append(yellow_watermelon)
 
-    print(all_melon_types)
+    # print(all_melon_types)
     return all_melon_types
 
 
-print(make_melon_types())
-# melon_types = make_melon_types()
-# loop through and print the pairing of each one
+melon_types = make_melon_types()
+# print(melon_types)
+# # loop through and print the pairing of each one
+for items in melon_types:
+
+    print(f"{items.pairings} {items.name}")
 
 
 def print_pairing_info(melon_types):
     """Prints information about each melon type's pairings."""
 
-    # Fill in the rest
+    for items in melon_types:
+        pairing_string = ",".join(items.pairings)
+        print(f"{items.name} pairs with ")
+        print(f"- {pairing_string}")
+
+
+print_pairing_info(melon_types)
+# Fill in the rest
 
 
 def make_melon_type_lookup(melon_types):
     """Takes a list of MelonTypes and returns a dictionary of melon type by code."""
 
     # Fill in the rest
+    melon_dict = {}
+    for item in melon_types:
+        # print(item)
+        melon_dict[item.code] = item
 
+    return melon_dict
+
+
+print(make_melon_type_lookup(melon_types))
 
 ############
 # Part 2   #
